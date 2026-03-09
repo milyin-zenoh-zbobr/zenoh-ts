@@ -792,6 +792,13 @@ Deno.test("API - Comprehensive Query Operations with Options", async () => {
               `Query parameters should match for ${fullDescription}`
             );
 
+            // Verify acceptsReplies matches what was set in getOptions
+            assertEquals(
+              q.acceptsReplies(),
+              testCase.getOptions.acceptReplies ?? ReplyKeyExpr.DEFAULT,
+              `Query acceptsReplies should match for ${fullDescription}`
+            );
+
             //
             // IMPORTANT: queryable should return the queryable's keyExpr for the reply, not the keyexpr requested (q.keyexpr())
             // E.g. requet may be "zenoh/test/*" and reply should contain keyexpr "zenoh/test/testcase1"

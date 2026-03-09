@@ -206,6 +206,14 @@ export class Query {
     }
 
     /**
+     * returns ReplyKeyExpr for this Query
+     * @returns ReplyKeyExpr
+     */
+    acceptsReplies(): ReplyKeyExpr {
+        return this.inner.replyKeyExpr_;
+    }
+
+    /**
       * Sends a Reply to for Query
       * @param {IntoKeyExpr} intoKeyExpr 
       * @param {IntoZBytes} payload
